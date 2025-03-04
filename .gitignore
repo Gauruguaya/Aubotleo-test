@@ -1,0 +1,27 @@
+# Ignorar directorios del sistema
+AppData/
+Configuración local/
+Cookies/
+Datos de programa/
+Documents/Mi música/
+Documents/Mis imágenes/
+Documents/Mis vídeos/
+Entorno de red/
+Impresoras/
+Menú Inicio/
+Mis documentos/
+Plantillas/
+Reciente/
+SendTo/
+.VirtualBox/
+.android/
+
+# Ignorar archivos temporales
+*.tmp
+*.log
+
+# Ignorar archivos no rastreados
+analizador-velocidad-lectura/
+ersviejaDocumentsTecn\303\263logaTCCC\303\223DIGO\357\200\242
+how \357\200\274commit_hash\357\200\276
+venv/
