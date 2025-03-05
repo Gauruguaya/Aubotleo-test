@@ -28,7 +28,7 @@ if audio_subido:
     st.audio(audio_subido)
 
  # Obtener la extensión del archivo
-	file_extension = audio_subido.name.split(".")[-1].lower()
+    file_extension = audio_subido.name.split(".")[-1].lower()
 
  # Convertir el audio a WAV si no está en ese formato
 if file_extension == "wav":st.write("El archivo ya está en formato WAV.")
