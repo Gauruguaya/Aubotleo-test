@@ -31,32 +31,31 @@ if audio_subido:
 	file_extension = audio_subido.name.split(".")[-1].lower()
 
  # Convertir el audio a WAV si no está en ese formato
-    if file_extension == "wav":
-    	st.write("El archivo ya está en formato WAV.")
-    	audio_wav = audio_subido
+if file_extension == "wav":st.write("El archivo ya está en formato WAV.")
+    audio_wav = audio_subido
        
-    else:
-        st.write(f"Convirtiendo el archivo {file_extension.upper()} a WAV...")
+else:
+    st.write(f"Convirtiendo el archivo {file_extension.upper()} a WAV...")
 
-        try:
-            # Guardar el archivo subido temporalmente
-            with open("temp_audio", "wb") as f:
-                f.write(audio_subido.getbuffer())
+    try:
+    # Guardar el archivo subido temporalmente
+    with open("temp_audio", "wb") as f:
+    f.write(audio_subido.getbuffer())
 
-            # Cargar el archivo con pydub
-            audio = AudioSegment.from_file("temp_audio", format=file_extension)
+    # Cargar el archivo con pydub
+    audio = AudioSegment.from_file("temp_audio", format=file_extension)
 
-            # Convertir a WAV
-            audio_wav_path = "temp_audio.wav"
-            audio.export(audio_wav_path, format="wav")
+    # Convertir a WAV
+    audio_wav_path = "temp_audio.wav"
+    audio.export(audio_wav_path, format="wav")
 
-            # Mostrar el archivo convertido
-            st.write("Archivo convertido a WAV:")
-            st.audio(audio_wav_path)
+    # Mostrar el archivo convertido
+    st.write("Archivo convertido a WAV:")
+    st.audio(audio_wav_path)
 
-            # Eliminar el archivo temporal
-            os.remove("temp_audio")
-        except Exception as e:
-            st.error(f"Error al convertir el archivo: {e}")
+    # Eliminar el archivo temporal
+    os.remove("temp_audio")
+    except Exception as e:
+    st.error(f"Error al convertir el archivo: {e}")
 
 
