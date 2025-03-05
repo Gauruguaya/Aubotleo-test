@@ -1,0 +1,4 @@
+streamlit
+pydub
+--extra-index-url https://download.streamlit.io/ubuntu/stable/
+ffmpeg
