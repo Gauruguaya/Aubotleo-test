@@ -11,11 +11,10 @@ with col2:
 
 print(AudioSegment.converter)
 # Configurar la ruta de FFmpeg (si no se detecta automáticamente)
-AudioSegment.converter = "C:\\ffmpeg\\bin\\ffmpeg.exe"
+AudioSegment.converter = "ffmpeg"
 
 # Subida de archivo de audio
-audio_subido = st.file_uploader("Sube tu grabación", type=["wav", "mp3", "m4a", "ogg", "aac"])
-
+audio_subido = st.file_uploader("Sube tu grabación", type=["wav", "mp3", "m4a", "ogg", "aac", "opus"])
 # Campo para pegar el texto de referencia
 texto_referencia = st.text_area("Pega el texto a leer")
 
@@ -28,19 +27,24 @@ if audio_subido:
     st.write("Archivo de audio subido:")
     st.audio(audio_subido)
 
+ # Obtener la extensión del archivo
+	file_extension = audio_subido.name.split(".")[-1].lower()
+
  # Convertir el audio a WAV si no está en ese formato
-    if audio_subido.name.endswith(".wav"):
-        st.write("El archivo ya está en formato WAV.")
-        audio_wav = audio_subido
+    if file_extension == "wav":
+    	st.write("El archivo ya está en formato WAV.")
+    	audio_wav = audio_subido
+       
     else:
-        st.write("Convirtiendo el archivo a WAV...")
+        st.write(f"Convirtiendo el archivo {file_extension.upper()} a WAV...")
+
         try:
             # Guardar el archivo subido temporalmente
             with open("temp_audio", "wb") as f:
                 f.write(audio_subido.getbuffer())
 
             # Cargar el archivo con pydub
-            audio = AudioSegment.from_file("temp_audio")
+            audio = AudioSegment.from_file("temp_audio", format=file_extension)
 
             # Convertir a WAV
             audio_wav_path = "temp_audio.wav"
