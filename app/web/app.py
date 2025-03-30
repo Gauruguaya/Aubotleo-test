@@ -1,6 +1,7 @@
 import streamlit as st
 from pydub import AudioSegment
 import os
+from config import FFMPEG_PATH, ALLOWED_AUDIO_FORMATS  # Importar configuraciones
 
 # Título de la aplicación con logo
 col1, col2 = st.columns([1, 6])
@@ -9,11 +10,11 @@ with col1:
 with col2:
     st.title("Analizador de Velocidad Lectora")
 
-# Configurar la ruta de FFmpeg (si no se detecta automáticamente)
-AudioSegment.converter = "ffmpeg"
+# Configurar la ruta de FFmpeg
+AudioSegment.converter = FFMPEG_PATH
 
 # Subida de archivo de audio
-audio_subido = st.file_uploader("Sube tu grabación", type=["wav", "mp3", "m4a", "ogg", "aac", "opus"])
+audio_subido = st.file_uploader("Sube tu grabación", type=ALLOWED_AUDIO_FORMATS)
 
 # Campo para pegar el texto de referencia
 texto_referencia = st.text_area("Pega el texto a leer")
