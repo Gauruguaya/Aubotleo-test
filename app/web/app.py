@@ -1,12 +1,12 @@
 import streamlit as st
 from pydub import AudioSegment
 import os
-from config import FFMPEG_PATH, ALLOWED_AUDIO_FORMATS  # Importar configuraciones
+from config import FFMPEG_PATH, ALLOWED_AUDIO_FORMATS, LOGO_PATH  # Importar configuraciones
 
 # Título de la aplicación con logo
 col1, col2 = st.columns([1, 6])
 with col1:
-    st.image("logo.jpg", width=100, use_container_width=True)
+    st.image(LOGO_PATH, width=100, use_container_width=True)
 with col2:
     st.title("Analizador de Velocidad Lectora")
 
