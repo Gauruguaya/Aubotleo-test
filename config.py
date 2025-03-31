@@ -8,7 +8,8 @@ PROCESSED_DIR = os.path.join(DATA_DIR, "processed")
 TRANSCRIPTIONS_DIR = os.path.join(DATA_DIR, "transcriptions")
 
 # Configuración de FFmpeg
-FFMPEG_PATH = "ffmpeg"  # Cambiar si FFmpeg no está en el PATH del sistema
+FFMPEG_PATH = "C:/ProgramData\chocolatey/bin/ffmpeg.exe"
+FFPROBE_PATH = "C:/ProgramData/chocolatey/bin/ffprobe.exe"
 
 # Configuración de la aplicación
 APP_TITLE = "Analizador de Velocidad Lectora"
