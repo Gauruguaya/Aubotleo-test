@@ -1,6 +1,11 @@
 import streamlit as st
 from pydub import AudioSegment
 import os
+import sys
+
+# Agregar la raíz del proyecto al sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+
 from config import FFMPEG_PATH, ALLOWED_AUDIO_FORMATS, LOGO_PATH  # Importar configuraciones
 
 # Título de la aplicación con logo
