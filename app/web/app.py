@@ -65,3 +65,4 @@ if audio_subido:
             st.error(f"Error al convertir el archivo: {e}")
 
 st.write(f"Ruta de LOGO_PATH: {LOGO_PATH}")
+st.write(f"Ruta de LOGO_PATH: {ALLOWED_AUDIO_FORMATS}")
