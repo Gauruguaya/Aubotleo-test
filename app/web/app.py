@@ -6,7 +6,7 @@ import sys
 # Agregar la raíz del proyecto al sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 
-from config import FFMPEG_PATH, FFPROBE_PATH, LOGO_PATH  # Importar configuraciones
+from config import FFMPEG_PATH, FFPROBE_PATH, LOGO_PATH, ALLOWED_AUDIO_FORMATS  # Importar configuraciones
 
 # Título de la aplicación con logo
 col1, col2 = st.columns([1, 6])
