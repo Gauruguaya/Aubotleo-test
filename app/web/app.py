@@ -63,3 +63,5 @@ if audio_subido:
             os.remove("temp_audio")
         except Exception as e:
             st.error(f"Error al convertir el archivo: {e}")
+
+st.write(f"Ruta de LOGO_PATH: {LOGO_PATH}")
