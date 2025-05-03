@@ -2,25 +2,27 @@ import streamlit as st
 from pydub import AudioSegment
 import os
 import sys
+import whisper
+import config
+
+from core.whisper_wrapper import SpeechRecognizer
 
 # Agregar la raíz del proyecto al sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 
-from config import FFMPEG_PATH, FFPROBE_PATH, LOGO_PATH, ALLOWED_AUDIO_FORMATS  # Importar configuraciones
-
 # Título de la aplicación con logo
 col1, col2 = st.columns([1, 6])
 with col1:
-    st.image(LOGO_PATH, width=100, use_container_width=True)
+    st.image(config.LOGO_PATH, width=100, use_container_width=True)
 with col2:
     st.title("Analizador de Velocidad Lectora")
 
 # Configurar las rutas de FFmpeg y FFprobe
-AudioSegment.converter = FFMPEG_PATH
-AudioSegment.ffprobe = FFPROBE_PATH
+AudioSegment.converter = config.FFMPEG_PATH
+AudioSegment.ffprobe = config.FFPROBE_PATH
 
 # Subida de archivo de audio
-audio_subido = st.file_uploader("Sube tu grabación", type=ALLOWED_AUDIO_FORMATS)
+audio_subido = st.file_uploader("Sube tu grabación", type=config.ALLOWED_AUDIO_FORMATS)
 
 # Campo para pegar el texto de referencia
 texto_referencia = st.text_area("Pega el texto a leer")
@@ -63,6 +65,5 @@ if audio_subido:
             os.remove("temp_audio")
         except Exception as e:
             st.error(f"Error al convertir el archivo: {e}")
+            st.write("Por favor, verifica que el archivo sea válido y esté en un formato soportado.")
 
-st.write(f"Ruta de LOGO_PATH: {LOGO_PATH}")
-st.write(f"Ruta de ALLOWED_AUDIO_FORMATS: {ALLOWED_AUDIO_FORMATS}")
