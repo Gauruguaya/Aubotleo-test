@@ -9,6 +9,7 @@ from core.whisper_wrapper import SpeechRecognizer
 
 # Agregar la raíz del proyecto al sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+sys.path = list(dict.fromkeys(sys.path))  # Elimina duplicados en sys.path
 
 # Título de la aplicación con logo
 col1, col2 = st.columns([1, 6])
@@ -68,4 +69,5 @@ if audio_subido:
             st.write("Por favor, verifica que el archivo sea válido y esté en un formato soportado.")
 
 st.write(f"Rutas en sys.path: {sys.path}")
+
 
