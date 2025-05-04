@@ -1,5 +1,5 @@
 from core.whisper_wrapper import SpeechRecognizer
-from utils import get_audio_duration  # Elimina el punto .
+from utils import get_audio_duration 
 import whisper
 
 class SpeechRecognizer:
