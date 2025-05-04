@@ -75,5 +75,7 @@ if audio_subido:
             st.write("Por favor, verifica que el archivo sea válido y esté en un formato soportado.")
 
 st.write(f"Rutas en sys.path: {sys.path}")
+print("sys.path:", sys.path)
+print("CORE_DIR:", CORE_DIR)
 
 
