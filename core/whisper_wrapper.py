@@ -1,5 +1,5 @@
 from core.whisper_wrapper import SpeechRecognizer
-from utils import get_audio_duration 
+from core.utils import get_audio_duration 
 import whisper
 
 class SpeechRecognizer:
