@@ -6,9 +6,6 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 CORE_DIR = PROJECT_ROOT / "core"
 
-# Limpia entradas incorrectas en sys.path
-sys.path = [p for p in sys.path if not p.endswith('app.py')]
-
 # Limpia entradas duplicadas y elimina rutas incorrectas en sys.path
 sys.path = list(dict.fromkeys(sys.path))
 sys.path = [p for p in sys.path if not p.endswith(('app.py', 'app/web', 'app/app/core'))]
@@ -81,8 +78,8 @@ if audio_subido:
             st.error(f"Error al convertir el archivo: {e}")
             st.write("Por favor, verifica que el archivo sea válido y esté en un formato soportado.")
 
-st.write(f"Rutas en sys.path: {sys.path}")
 print("sys.path después de limpiar:", sys.path)
-print("CORE_DIR:", CORE_DIR)
+
+
 
 

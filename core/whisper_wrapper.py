@@ -1,4 +1,3 @@
-from core.whisper_wrapper import SpeechRecognizer
 from core.utils import get_audio_duration 
 import whisper
 
