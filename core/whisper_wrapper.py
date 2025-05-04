@@ -1,10 +1,5 @@
-from pydub.utils import mediainfo
 from .utils import get_audio_duration
 import whisper
-
-def get_audio_duration(audio_path):
-    info = mediainfo(audio_path)
-    return float(info["duration"])
 
 class SpeechRecognizer:
     def __init__(self, model_size="base"):
