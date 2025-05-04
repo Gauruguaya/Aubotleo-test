@@ -6,6 +6,9 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 CORE_DIR = PROJECT_ROOT / "core"
 
+# Limpia entradas incorrectas en sys.path
+sys.path = [p for p in sys.path if not p.endswith('app.py')]
+
 # Limpia entradas duplicadas en sys.path
 sys.path = list(dict.fromkeys(sys.path))
 
