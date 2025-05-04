@@ -9,8 +9,9 @@ CORE_DIR = PROJECT_ROOT / "core"
 # Limpia entradas incorrectas en sys.path
 sys.path = [p for p in sys.path if not p.endswith('app.py')]
 
-# Limpia entradas duplicadas en sys.path
+# Limpia entradas duplicadas y elimina rutas incorrectas en sys.path
 sys.path = list(dict.fromkeys(sys.path))
+sys.path = [p for p in sys.path if not p.endswith(('app.py', 'app/web', 'app/app/core'))]
 
 # Agregar CORE_DIR al sys.path si no está presente
 if str(CORE_DIR) not in sys.path:
