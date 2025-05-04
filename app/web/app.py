@@ -6,12 +6,9 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent  # Ajusta según tu estructura
 CORE_DIR = PROJECT_ROOT / "core"
 
-# Verificar si CORE_DIR existe antes de modificar sys.path
-if CORE_DIR.exists():
-    sys.path = [str(p) for p in sys.path if str(p) != str(CORE_DIR)]
+# Agregar CORE_DIR al sys.path
+if str(CORE_DIR) not in sys.path:
     sys.path.insert(0, str(CORE_DIR))
-else:
-    raise FileNotFoundError(f"El directorio CORE_DIR no existe: {CORE_DIR}")
 
 # Ahora importa normalmente
 from whisper_wrapper import SpeechRecognizer
