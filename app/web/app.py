@@ -1,9 +1,13 @@
-import streamlit as st
-from pydub import AudioSegment
 import os
 import sys
-import whisper
-import config
+from pathlib import Path
+
+# Agrega la ruta al directorio 'core' al sys.path
+CORE_DIR = Path(__file__).resolve().parent.parent / "app" / "core"
+sys.path.insert(0, str(CORE_DIR))
+
+# Importa después de configurar el path
+from whisper_wrapper import SpeechRecognizer
 
 from core.whisper_wrapper import SpeechRecognizer
 
