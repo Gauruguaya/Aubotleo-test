@@ -67,3 +67,5 @@ if audio_subido:
             st.error(f"Error al convertir el archivo: {e}")
             st.write("Por favor, verifica que el archivo sea válido y esté en un formato soportado.")
 
+st.write(f"Rutas en sys.path: {sys.path}")
+
