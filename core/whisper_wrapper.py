@@ -1,6 +1,6 @@
 from .utils import get_audio_duration
 import whisper
-
+#indentation
 class SpeechRecognizer:
     def __init__(self, model_size="base"):
         self.model = whisper.load_model(model_size)
