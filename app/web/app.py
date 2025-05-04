@@ -5,7 +5,7 @@ import sys
 import whisper
 import config
 
-from .whisper_wrapper import SpeechRecognizer
+from core.whisper_wrapper import SpeechRecognizer
 
 # Agregar la raíz del proyecto al sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
