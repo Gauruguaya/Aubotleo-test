@@ -1,6 +1,7 @@
-from .utils import get_audio_duration
+# Cambiar la importación relativa por absoluta desde el mismo directorio
+from utils import get_audio_duration  # Elimina el punto .
 import whisper
-#indentation
+
 class SpeechRecognizer:
     def __init__(self, model_size="base"):
         self.model = whisper.load_model(model_size)

@@ -8,8 +8,8 @@ PROCESSED_DIR = os.path.join(DATA_DIR, "processed")
 TRANSCRIPTIONS_DIR = os.path.join(DATA_DIR, "transcriptions")
 
 # Configuración de FFmpeg
-FFMPEG_PATH = "ffmpeg"
-FFPROBE_PATH = "ffprobe"
+FFMPEG_PATH = r"C:\ffmpeg\bin\ffmpeg.exe"  # Ajusta según tu instalación
+FFPROBE_PATH = r"C:\ffmpeg\bin\ffprobe.exe"
 
 # Configuración de la aplicación
 APP_TITLE = "Analizador de Velocidad Lectora"

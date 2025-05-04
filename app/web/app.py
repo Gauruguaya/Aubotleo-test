@@ -2,18 +2,20 @@ import os
 import sys
 from pathlib import Path
 
-# Agrega la ruta al directorio 'core' al sys.path
-CORE_DIR = Path(__file__).resolve().parent.parent / "app" / "core"
+# Configuración CLAVE para Windows (usa rutas absolutas)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent  # Ajusta según tu estructura
+CORE_DIR = PROJECT_ROOT / "core"
+
+# Agrega a sys.path (primero elimina rutas duplicadas)
+sys.path = [str(p) for p in sys.path if str(p) != str(CORE_DIR)]
 sys.path.insert(0, str(CORE_DIR))
 
-# Importa después de configurar el path
+# Ahora importa normalmente
 from whisper_wrapper import SpeechRecognizer
 
-from core.whisper_wrapper import SpeechRecognizer
-
-# Agregar la raíz del proyecto al sys.path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
-sys.path = list(dict.fromkeys(sys.path))  # Elimina duplicados en sys.path
+import streamlit as st
+from pydub import AudioSegment
+import config
 
 # Título de la aplicación con logo
 col1, col2 = st.columns([1, 6])
