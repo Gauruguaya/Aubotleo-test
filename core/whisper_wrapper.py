@@ -1,4 +1,4 @@
-# Cambiar la importación relativa por absoluta desde el mismo directorio
+from core.whisper_wrapper import SpeechRecognizer
 from utils import get_audio_duration  # Elimina el punto .
 import whisper
 

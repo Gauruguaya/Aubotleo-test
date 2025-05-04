@@ -3,15 +3,18 @@ import sys
 from pathlib import Path
 
 # Configuración CLAVE para Windows (usa rutas absolutas)
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent  # Ajusta según tu estructura
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 CORE_DIR = PROJECT_ROOT / "core"
 
-# Agregar CORE_DIR al sys.path
+# Limpia entradas duplicadas en sys.path
+sys.path = list(dict.fromkeys(sys.path))
+
+# Agregar CORE_DIR al sys.path si no está presente
 if str(CORE_DIR) not in sys.path:
     sys.path.insert(0, str(CORE_DIR))
 
-# Ahora importa normalmente
-from whisper_wrapper import SpeechRecognizer
+# Importa después de configurar el path
+from core.whisper_wrapper import SpeechRecognizer
 
 import streamlit as st
 from pydub import AudioSegment
@@ -75,7 +78,7 @@ if audio_subido:
             st.write("Por favor, verifica que el archivo sea válido y esté en un formato soportado.")
 
 st.write(f"Rutas en sys.path: {sys.path}")
-print("sys.path:", sys.path)
+print("sys.path después de limpiar:", sys.path)
 print("CORE_DIR:", CORE_DIR)
 
 
