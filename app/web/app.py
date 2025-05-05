@@ -8,11 +8,12 @@ CORE_DIR = PROJECT_ROOT / "core"
 
 # Limpia entradas duplicadas y elimina rutas incorrectas en sys.path
 sys.path = list(dict.fromkeys(sys.path))
-sys.path = [p for p in sys.path if not p.endswith(('app.py', 'app/web', 'app/core'))]
+sys.path = [p for p in sys.path if not p.endswith(('app.py', 'app/web'))]
 
 # Agregar CORE_DIR al sys.path si no está presente
 if str(CORE_DIR) not in sys.path:
     sys.path.insert(0, str(CORE_DIR))
+print("sys.path después de agregar CORE_DIR:", sys.path)
 
 # Importa después de configurar el path
 from core.whisper_wrapper import SpeechRecognizer
@@ -80,7 +81,9 @@ if audio_subido:
             st.write("Por favor, verifica que el archivo sea válido y esté en un formato soportado.")
 
 print("sys.path después de limpiar:", sys.path)
-
+print("PROJECT_ROOT:", PROJECT_ROOT)
+print("CORE_DIR:", CORE_DIR)
+print("sys.path:", sys.path)
 
 
 
