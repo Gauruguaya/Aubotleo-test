@@ -8,7 +8,7 @@ CORE_DIR = PROJECT_ROOT / "core"
 
 # Limpia entradas duplicadas y elimina rutas incorrectas en sys.path
 sys.path = list(dict.fromkeys(sys.path))
-sys.path = [p for p in sys.path if not p.endswith(('app.py', 'app/web', 'app/app/core'))]
+sys.path = [p for p in sys.path if not p.endswith(('app.py', 'app/web', 'core'))]
 
 # Agregar CORE_DIR al sys.path si no está presente
 if str(CORE_DIR) not in sys.path:
@@ -58,11 +58,12 @@ if audio_subido:
         st.write(f"Convirtiendo el archivo {file_extension.upper()} a WAV...")
         try:
             # Guardar el archivo subido temporalmente
-            with open("temp_audio", "wb") as f:
+            temp_audio_path = os.path.join(config.DATA_DIR, "temp_audio")
+            with open(temp_audio_path, "wb") as f:
                 f.write(audio_subido.getbuffer())
 
             # Cargar el archivo con pydub
-            audio = AudioSegment.from_file("temp_audio", format=file_extension)
+            audio = AudioSegment.from_file(temp_audio_path, format=file_extension)
 
             # Convertir a WAV
             audio_wav_path = "temp_audio.wav"
