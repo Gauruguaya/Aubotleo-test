@@ -1,6 +1,7 @@
 import os
 import sys
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Configuración CLAVE para Windows (usa rutas absolutas)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -21,6 +22,15 @@ from core.whisper_wrapper import SpeechRecognizer
 import streamlit as st
 from pydub import AudioSegment
 import config
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
+
+# Acceder a las variables de entorno
+FFMPEG_PATH = os.getenv("FFMPEG_PATH")
+FFPROBE_PATH = os.getenv("FFPROBE_PATH")
+DATA_DIR = os.getenv("DATA_DIR")
+ALLOWED_AUDIO_FORMATS = os.getenv("ALLOWED_AUDIO_FORMATS").split(",")
 
 # Título de la aplicación con logo
 col1, col2 = st.columns([1, 6])
