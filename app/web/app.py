@@ -13,7 +13,7 @@ sys.path = [p for p in sys.path if not p.endswith(('app.py', 'app/web'))]
 
 # Agregar CORE_DIR al sys.path si no está presente
 if str(CORE_DIR) not in sys.path:
-    sys.path.insert(0, str(CORE_DIR))
+    sys.path.insert(0, "/mount/src/aubotleo-test/core")
 print("sys.path después de agregar CORE_DIR:", sys.path)
 
 # Importa después de configurar el path
