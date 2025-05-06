@@ -71,3 +71,5 @@ ffmpeg-2025-05-01-git-707c04fe06-full_build/presets/libvpx-720p50_60.ffpreset
 ffmpeg-2025-05-01-git-707c04fe06-full_build/presets/libvpx-1080p.ffpreset
 ffmpeg-2025-05-01-git-707c04fe06-full_build/presets/libvpx-1080p50_60.ffpreset
 .gitignore
+#ignorar carpeta ffmpeg
+ffmpeg-2025-05-01-git-707c04fe06-full_build/
